@@ -1,4 +1,3 @@
-
 import json
 import time
 import os
@@ -230,7 +229,7 @@ class Zlapp(Fudan):
         city = self.last_info["city"]
         district = geo_api_info["addressComponent"].get("district", "")
         count = 0
-        while (count < 100):
+        while (count < 10):
             print("◉正在识别验证码......")
             code = self.validate_code()
             print("◉验证码为:", code)
@@ -246,7 +245,6 @@ class Zlapp(Fudan):
 
                 }
             )
-            # print(self.last_info)
             save = self.session.post(
                 'https://zlapp.fudan.edu.cn/ncov/wap/fudan/save',
                 data=self.last_info,
@@ -312,7 +310,7 @@ if __name__ == '__main__':
         print("\n\n◉◉推送")
         count, des = daily_fudan.checkin()
         if count >= 0:
-            notify("提交成功，地址：{}，识别次数：{}".format(address, count), des)
+            notify("提交成功，识别次数：{}，地址：{}，".format(address, count), des)
         else:
-            notify("提交失败，识别次数：{}".format(100), des)
-        daily_fudan.close(1)
+            notify("提交失败，识别次数：{}".format(10), des)
+    daily_fudan.close()
