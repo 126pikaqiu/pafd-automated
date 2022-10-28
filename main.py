@@ -239,10 +239,8 @@ class Zlapp(Fudan):
                     "province": province,
                     "city": city,
                     "area": " ".join((province, city, district)),
-                    # "sfzx": "1",  # 是否在校
-                    # "fxyy": "",  # 返校原因
                     "code": code,
-
+                    "ip": "101.94.135.10"
                 }
             )
             save = self.session.post(
@@ -303,7 +301,7 @@ if __name__ == '__main__':
     uid, psw = get_account()
     nowTime=datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     random.seed(nowTime)
-    sleep_time = random.randint(0,1000)
+    sleep_time = random.randint(0,100)
     print("休眠时间", sleep_time)
     time.sleep(sleep_time)
     zlapp_login = 'https://uis.fudan.edu.cn/authserver/login?' \
