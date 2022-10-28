@@ -304,7 +304,7 @@ if __name__ == '__main__':
     nowTime=datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     random.seed(nowTime)
     sleep_time = random.randint(0,1000)
-    print("休眠时间" + sleep_time)
+    print("休眠时间", sleep_time)
     time.sleep(sleep_time)
     zlapp_login = 'https://uis.fudan.edu.cn/authserver/login?' \
                   'service=https://zlapp.fudan.edu.cn/site/ncov/fudanDaily'
